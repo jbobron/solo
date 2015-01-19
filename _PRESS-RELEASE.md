@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Supper Club: helps you keep track of the meals that you and your friends cook!
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > For anyone who cooks with their friends and who want to keep track of past meals created.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Supper club will let you upload meals you've made along with pictures, ingredients, ratings, quisine, who cooked it, cost, etc.  You can also checkout and star recommended receipies through the "explore" page. In the calendar view, you can see what days have events and click on a day to see more info.  The app can keep track of who is next in rotation to be the head chief.  The app also will be tied to the Instacart API so you and your friends can decide on the recipie and the app will tell you how much of each ingredient you need so you can plan your meal and order the ingredients all in one app.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > People who are passionate about cooking with friends have no way to organize past meals that they created with different groups of friends.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Supper club allows you to have groups of friends that have access to the same data to upload content, plan, and review past, current and future meals.  The app can also remind you to work out the next day and let you order ingredients to be delivered using instacart
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > I want to make your cooking experience fun, make planning meals in advance easier, and make looking back on past meals a easy, fun and social.  
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Snap a picture of your meal tonight and quickly input some data to start keeping track of past meals.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > This app changed my life.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > get started at [insert link here]
