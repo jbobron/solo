@@ -1,0 +1,56 @@
+<!-- index.html -->
+<!doctype html>
+
+<html ng-app="supperclub">
+<head>
+
+  <title>SupperClub</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="core.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL meals -->
+<body ng-controller="mainController">
+  <div class="container">
+
+    <!-- HEADER AND Meal COUNT -->
+    <div class="jumbotron text-center">
+      <h1>Supper Club <span class="label label-info">{{ meals.length }}</span></h1>
+    </div>
+
+    <!-- FORM TO CREATE meal -->
+    <div id="meal-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <form>
+          <div class="form-group">
+
+            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+            <input type="text" class="form-control input-lg text-center" placeholder="Insert Meal" ng-model="formData.text">
+          </div>
+
+          <!-- createToDo() WILL CREATE NEW meals -->
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="createMeal()">Add</button>
+        </form>
+      </div>
+    </div>
+
+     <!-- Meal LIST -->
+    <div id="meal-list" class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+
+        <!-- LOOP OVER THE meals IN $scope.meals -->
+        <div class="checkbox" ng-repeat="meal in meals">
+          <label>
+            <input type="checkbox" ng-click="deleteMeal(meal._id)"> {{ meal.text }}
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
