@@ -38,13 +38,18 @@ function mainController($scope, $http) {
             });        
     };
     $scope.voteUp = function(meal){
-        $http.post('/api/meals/votes/' + meal._id)  //api/meals/votes
+        $http.post('/api/meals/votes/' + meal._id)  
             .success(function(data) {
-
-                //update that one meal i clicked upvote on!
-                // if(meal.votes === data.votes)
                 meal.votes = data.votes;
-                // console.log(data)
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    }
+    $scope.voteDown = function(meal){
+        $http.post('/api/meals/votes/down/' + meal._id)  
+            .success(function(data) {
+                meal.votes = data.votes;
             })
             .error(function(data) {
                 console.log('Error: ' + data);
