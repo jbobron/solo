@@ -63,17 +63,43 @@ app.get('/api/meals', function(req, res) {
       });
   });
 
-  app.post('/api/meals/votes', function(req, res) {
+  app.post('/api/meals/votes/:meal_id', function(req, res) {
+    //get vote count
+    var query = {id: req.params.meal_id};
+
+    // console.log(query)
+    // Meal.findOneAndUpdate(query, {$inc: {votes: 1}}, function(err, meals){
+    //   if(err){
+    //     console.log("ERROR: ", err);
+    //   }
+    var myid = req.params.meal_id.toString();
+    console.log(myid);
+    // Meal.find({_id: req.params.meal_id}).find(function (err, meals) {
+      Meal.findOneAndUpdate({_id: req.params.meal_id}, {$inc: {votes: 1}}, function(err, meals){
+        if(err){
+          console.log("Error")
+        }
+        // console.log("hey")
+        res.send(meals);
+        // res.json(meals);
+      });
+
+
+    
       // create a meal, information comes from AJAX request from Angular
-    Meal.update({_id : req.params.meal_id}, {$inc: {votes: 1}}
-      
-    );
-
-
-      
-            
+    // db.meals.find({_id : req.params.meal_id}, {votes: votes+1})
+    // Meal.update({
+    //   _id : req.params.meal_id,
+  
+    // }, function(err, meal){
+    //   console.log('in here')
+    //   if (err){
+    //     res.send(err); 
+          
+    // }
   
   });
+
 
     // delete a meal
   app.delete('/api/meals/:meal_id', function(req, res) {

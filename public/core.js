@@ -37,11 +37,14 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });        
     };
-    $scope.voteUp = function(){
-        $http.post('/api/meals/votes')  //api/meals/votes
+    $scope.voteUp = function(meal){
+        $http.post('/api/meals/votes/' + meal._id)  //api/meals/votes
             .success(function(data) {
-                // $scope.vote +=1;
-                console.log(data)
+
+                //update that one meal i clicked upvote on!
+                // if(meal.votes === data.votes)
+                meal.votes = data.votes;
+                // console.log(data)
             })
             .error(function(data) {
                 console.log('Error: ' + data);

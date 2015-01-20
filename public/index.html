@@ -48,7 +48,7 @@
             <!-- LOOP OVER THE meals IN $scope.meals -->
             <ul>
               <div class='meal-div'>
-                <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
+                <li ng-repeat='meal in meals | orderBy:"-votes" | filter: filter' >
                     <div class="row">
                           <div class="col-xs-4 col-sm-2">
                              <img src="assets/salmon.jpg" alt="Smiley face" height="120" width="120">
@@ -57,8 +57,8 @@
                             <div class='text'>Meal: {{meal.text}}</div>
                             <div class='chef'>Chef: {{meal.chef}}</div>
                             <div class='votes'><span class='count'>Votes: {{meal.votes}}</span></div>
-                            <button class="btn btn-primary" ng-click="voteUp()">Vote Up!</button>
-                            <button class="btn btn-primary" ng-click="voteDown()">Vote Down!</button>
+                            <button class="btn btn-primary" ng-click="voteUp(meal)">Vote Up!</button>
+                            <button class="btn btn-primary" ng-click="voteDown(meal)">Vote Down!</button>
                               <button class="deleteButton" ng-click="deleteMeal(meal._id)"></button>
                           </div>
                         </div>
