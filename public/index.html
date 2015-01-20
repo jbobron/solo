@@ -9,6 +9,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   <script src="core.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL meals -->
@@ -16,7 +17,7 @@
   <div class="container">
 
     <!-- HEADER AND Meal COUNT -->
-    <div class="jumbotron text-center">
+    <div class="nav-bar">
       <h1>Supper Club</h1>
       <p>Meal Count: <span class="label label-info">{{ meals.length }}</span></p>
     </div>
@@ -28,7 +29,8 @@
           <div class="form-group">
 
             <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-            <input type="text" class="form-control input-lg text-center" placeholder="Insert Meal" ng-model="formData.text">
+            <input type="text" class="meal" placeholder="Insert Meal" ng-model="formData.text">
+            <input type="text" class="chef" placeholder="Insert Chef" ng-model="formData.chef">
           </div>
 
           <!-- createToDo() WILL CREATE NEW meals -->
@@ -39,29 +41,39 @@
 
      <!-- Meal LIST -->
     <div id="meal-list" class="row">
-      <div class="col-sm-4 col-sm-offset-4">
+      <!-- <div class="col-sm-4 col-sm-offset-4"> -->
 
         <!-- LOOP OVER THE meals IN $scope.meals -->
-        <div class="checkbox" ng-repeat="meal in meals">
-          <label>
-            <input type="checkbox" ng-click="deleteMeal(meal._id)"> {{ meal.text }}
-          </label>
-        </div>
+        <ul>
+          <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
+            <div class='meal-div'>
+                <div class='text'>Meal: {{meal.text}}</div>
+                <div class='chef'>Chef: {{meal.chef}}</div>
+                <div class='votes'><span class='count'>Votes: {{meal.votes}}</span></div>
+                <a img='myimg'>{{meal.img}}</a>
+                 <button ng-click="voteUp()">Vote Up!</button>
+                 <button ng-click="voteDown()">Vote Down!</button>
+                 Delete:<input type="checkbox" ng-click="deleteMeal(meal._id)"> 
+            </div>
+          </li>
+        </ul>
 
         <!-- FROM SHORTLY ANGULAR -->
-        <!-- <ul>
-          <li ng-repeat='link in data.links | orderBy:"visits" | filter: filter' >
-            <div class='link'>
-                <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
-                <div class='title'>{{link.title}}</div>
-                <div class='original'>{{link.url}}</div>
-                <a href='{{link.base_url+"/api/links/"+link.code}}'>{{link.base_url}}/{{link.code}}</a>
+       <!--  <ul>
+          <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
+            <div class='meal-div'>
+                <div class='text'>{{meal.text}}</div>
+                <div class='chef'>{{meal.chef}}</div>
+                <div class='votes'><span class='count'>{{meal.votes}}</span></div>
+                <a img='myimg'>{{meal.img}}</a>
+                 <button ng-click="voteUp()">Vote Up!</button>
+                 <input type="checkbox" ng-click="deleteMeal(meal._id)"> 
             </div>
           </li>
         </ul> -->
 
 
-      </div>
+      <!-- </div> -->
     </div>
 
   </div>

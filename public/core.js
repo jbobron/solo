@@ -35,8 +35,18 @@ function mainController($scope, $http) {
             })
             .error(function(data) {
                 console.log('Error: ' + data);
-            });
+            });        
     };
+    $scope.voteUp = function(){
+        $http.post('/api/meals/votes')  //api/meals/votes
+            .success(function(data) {
+                // $scope.vote +=1;
+                console.log(data)
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    }
 
 }
 

@@ -41,17 +41,19 @@ app.get('/api/meals', function(req, res) {
     });
   });
 
-    // create todo and send back all meals after creation
+    // create meal and send back all meals after creation
   app.post('/api/meals', function(req, res) {
-      // create a todo, information comes from AJAX request from Angular
+      // create a meal, information comes from AJAX request from Angular
     Meal.create({
       text : req.body.text,
-      done : false
+      done : false,
+      votes: 0,
+      chef: req.body.chef,
     }, function(err, meal) {
         if (err){
           res.send(err);
         }
-        // get and return all the todos after you create another
+        // get and return all the meals after you create another
         Meal.find(function(err, meals) {
             if (err){
               res.send(err)
@@ -61,7 +63,19 @@ app.get('/api/meals', function(req, res) {
       });
   });
 
-    // delete a todo
+  app.post('/api/meals/votes', function(req, res) {
+      // create a meal, information comes from AJAX request from Angular
+    Meal.update({_id : req.params.meal_id}, {$inc: {votes: 1}}
+      
+    );
+
+
+      
+            
+  
+  });
+
+    // delete a meal
   app.delete('/api/meals/:meal_id', function(req, res) {
     Meal.remove({
       _id : req.params.meal_id
@@ -69,7 +83,7 @@ app.get('/api/meals', function(req, res) {
       if (err){
         res.send(err); 
       }
-      // get and return all the todos after you create another
+      // get and return all the meals after you create another
       Meal.find(function(err, meals) {
         if (err){
           res.send(err) 
@@ -83,8 +97,6 @@ app.get('/api/meals', function(req, res) {
   app.get('*', function(req, res) {
       res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
   });
-
-
 
 
 
