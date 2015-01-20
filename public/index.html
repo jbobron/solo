@@ -1,82 +1,77 @@
-<!-- index.html -->
-<!doctype html>
-
-<html ng-app="supperclub">
+<!DOCTYPE html>
+<html lang="en" ng-app="supperclub">
 <head>
-
   <title>SupperClub</title>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   <script src="core.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL meals -->
 <body ng-controller="mainController">
-  <div class="container">
-
+<script src="js/bootstrap.min.js"></script>
+  <div class="container-fluid">
+    <div class="tableCloth">
     <!-- HEADER AND Meal COUNT -->
-    <div class="nav-bar">
-      <h1>Supper Club</h1>
-      <p>Meal Count: <span class="label label-info">{{ meals.length }}</span></p>
-    </div>
-
-    <!-- FORM TO CREATE meal -->
-    <div id="meal-form" class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <form>
-          <div class="form-group">
-
-            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-            <input type="text" class="meal" placeholder="Insert Meal" ng-model="formData.text">
-            <input type="text" class="chef" placeholder="Insert Chef" ng-model="formData.chef">
+      <div class="row">
+        <div class=".col-md-9">
+          <div class="nav-bar">
+            <h1>Supper Club</h1>
+            <p>Meal Count: <span class="label label-info">{{ meals.length }}</span></p>
           </div>
+        </div>
+      </div>
 
-          <!-- createToDo() WILL CREATE NEW meals -->
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="createMeal()">Add</button>
-        </form>
+        <!-- FORM TO CREATE meal -->
+        <div class=".col-md-6">
+          <div id="meal-form" class="row">
+              <form>
+                <div class="form-group">
+                  <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                  <input type="text" class="meal" placeholder="Name of Meal" ng-model="formData.text">
+                  
+                  <input type="text" class="chef" placeholder="Chef Name" ng-model="formData.chef">
+                  <button class="btn btn-primary" type="submit" ng-click="createMeal()">Add</button>
+                </div>
+                <!-- createToDo() WILL CREATE NEW meals -->
+              </form>
+          </div>
+        </div>
+      </div>
+
+       <!-- Meal LIST -->
+      <div class=".col-md-8">
+        <div id="meal-list" class="row">
+            <!-- LOOP OVER THE meals IN $scope.meals -->
+            <ul>
+              <div class='meal-div'>
+                <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
+                    <div class="row">
+                          <div class="col-xs-4 col-sm-2">
+                             <img src="assets/salmon.jpg" alt="Smiley face" height="120" width="120">
+                          </div>
+                          <div class="col-xs-4 col-sm-10">
+                            <div class='text'>Meal: {{meal.text}}</div>
+                            <div class='chef'>Chef: {{meal.chef}}</div>
+                            <div class='votes'><span class='count'>Votes: {{meal.votes}}</span></div>
+                            <button class="btn btn-primary" ng-click="voteUp()">Vote Up!</button>
+                            <button class="btn btn-primary" ng-click="voteDown()">Vote Down!</button>
+                              <button class="deleteButton" ng-click="deleteMeal(meal._id)"></button>
+                          </div>
+                        </div>
+                  
+
+                    
+                </li>
+              </div>
+            </ul>
+        </div>
       </div>
     </div>
 
-     <!-- Meal LIST -->
-    <div id="meal-list" class="row">
-      <!-- <div class="col-sm-4 col-sm-offset-4"> -->
-
-        <!-- LOOP OVER THE meals IN $scope.meals -->
-        <ul>
-          <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
-            <div class='meal-div'>
-                <div class='text'>Meal: {{meal.text}}</div>
-                <div class='chef'>Chef: {{meal.chef}}</div>
-                <div class='votes'><span class='count'>Votes: {{meal.votes}}</span></div>
-                <a img='myimg'>{{meal.img}}</a>
-                 <button ng-click="voteUp()">Vote Up!</button>
-                 <button ng-click="voteDown()">Vote Down!</button>
-                 Delete:<input type="checkbox" ng-click="deleteMeal(meal._id)"> 
-            </div>
-          </li>
-        </ul>
-
-        <!-- FROM SHORTLY ANGULAR -->
-       <!--  <ul>
-          <li ng-repeat='meal in meals | orderBy:"votes" | filter: filter' >
-            <div class='meal-div'>
-                <div class='text'>{{meal.text}}</div>
-                <div class='chef'>{{meal.chef}}</div>
-                <div class='votes'><span class='count'>{{meal.votes}}</span></div>
-                <a img='myimg'>{{meal.img}}</a>
-                 <button ng-click="voteUp()">Vote Up!</button>
-                 <input type="checkbox" ng-click="deleteMeal(meal._id)"> 
-            </div>
-          </li>
-        </ul> -->
-
-
-      <!-- </div> -->
-    </div>
-
   </div>
-
 </body>
 </html>

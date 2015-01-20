@@ -1,67 +1,82 @@
-.container{
-  font-size: 48px;
-  color: #efefef;
-  /*background-image: url("assets/dinnerTable.jpg");
-  position:fixed; top:0; left:0; width:100%; height:100%;*/
-
+body{
+    background-image: url("assets/wood.jpg");
 }
-.nav-bar {
-	/*background-image: url("assets/wood.jpg");*/
-	width: 100%;
-	margin-left: 0;
-	padding-left: 0;
-	background-color:#DBB37F;
-}
-.ng-scope {
-
-	
-	/*background-size: 100%;
-	background-image: url("assets/dinnerTable.jpg");
-	background-size:cover;*/
+h1{
+    font-size: 56px;
+    font-weight: 900;
+    font-family: 'Expo Sans Pro';
 }
 
-#meal-list {
-	background-color:#7FA7DB;
+.container-fluid{
+	background-image: url("assets/wood.jpg");
+	color:white;
+    background-attachment: fixed;
 
 }
-.meal-div{
-	padding: 5px;
-	border: #DBB37F solid;
-	list-style-type: none;
-
+.tableCloth{
+    padding:5px;
+    color:black;
+    background-image: url("assets/tableCloth.jpg");
 }
 
-ul
-{
+
+.meal-div .row{
+	border-style: solid;
+	padding: 2px;
+}
+.row{
+	margin: 4px;
+}
+
+.col-xs-4 {
+	padding: 4px;
+}
+.text{
+	padding: 4px;
+}
+
+.chef{
+	padding: 4px;
+}
+.votes{
+	padding: 4px;
+}
+
+ul{
     list-style-type: none;
 }
 
-
-
-
-
-/*
-FROM: Angular solution lecture
-
-input[type=url].ng-invalid.ng-dirty {
-  border-bottom: 1px solid #F44336 !important;
+.deleteButton{
+    float:right;
+    margin-top:-100px;
+    margin-right:-20px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 13px 4px;
 }
 
-input[type=url].ng-invalid.ng-dirty:focus {
-  box-shadow: 0 1px 0 0 #F44336;
+.deleteButton:before {
+    content: "×";
 }
 
-input[type=url].ng-valid.ng-dirty:focus {
-  box-shadow: 0 1px 0 0 #1DE9B6;
+
+
+.form-group{
+    color:black;
 }
 
-input[type=url].ng-valid {
-  border-bottom: 1px solid #1DE9B6 !important;
+input[type="text"] {
+    width: 200px;
+    height: 30px;
 }
 
-i.valid, label.valid {
-  color: #1DE9B6 !important;
-}
-i.invalid, label.invalid {
-  color: #F44336 !important;
-}*/
+
+
+
