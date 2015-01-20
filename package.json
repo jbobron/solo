@@ -1,7 +1,7 @@
 {
-  "name"         : "node-todo",
+  "name"         : "node-supperclub",
   "version"      : "0.0.0",
-  "description"  : "Simple todo application.",
+  "description"  : "Supper Club",
   "main"         : "server.js",
   "author"       : "Jake",
   "dependencies" : {

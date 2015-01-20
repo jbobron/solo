@@ -23,7 +23,10 @@ app.use(methodOverride());
 
 
 var Meal = mongoose.model('Meal', {
-  text : String
+  text : String,
+  chef: String,
+  votes: 0,
+
 });
 
 app.get('/api/meals', function(req, res) {

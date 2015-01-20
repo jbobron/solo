@@ -17,7 +17,8 @@
 
     <!-- HEADER AND Meal COUNT -->
     <div class="jumbotron text-center">
-      <h1>Supper Club <span class="label label-info">{{ meals.length }}</span></h1>
+      <h1>Supper Club</h1>
+      <p>Meal Count: <span class="label label-info">{{ meals.length }}</span></p>
     </div>
 
     <!-- FORM TO CREATE meal -->
@@ -46,6 +47,19 @@
             <input type="checkbox" ng-click="deleteMeal(meal._id)"> {{ meal.text }}
           </label>
         </div>
+
+        <!-- FROM SHORTLY ANGULAR -->
+        <!-- <ul>
+          <li ng-repeat='link in data.links | orderBy:"visits" | filter: filter' >
+            <div class='link'>
+                <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+                <div class='title'>{{link.title}}</div>
+                <div class='original'>{{link.url}}</div>
+                <a href='{{link.base_url+"/api/links/"+link.code}}'>{{link.base_url}}/{{link.code}}</a>
+            </div>
+          </li>
+        </ul> -->
+
 
       </div>
     </div>
