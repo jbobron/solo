@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="explore">
+<head>
+  <title>Explore</title>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="explore.js"></script>
+<!--   // <script src="angular-file-upload-shim.min.js"></script> 
+  // <script src="angular-file-upload.min.js"></script> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="explore.css">
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL meals -->
+<body ng-controller="exploreController">
+  <div class="tableCloth">
+    <h1>Explore</h1>
+    <div class=".col-md-6">
+      <input type="text" class="" placeholder="Find a recipe" ng-model="data">
+      <button class="btn btn-primary" type="submit" ng-click="getRecipeJsonSearch(data)">Search</button>
+    </div>
+    <a class='goToIndex btn btn-primary' href="/index.html">Home</a>
+  </div>
+    <div class='explore-list .col-md-8' id="explore-list">
+    </div>
+  
+
+
+
+</body>
+</html>   

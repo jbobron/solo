@@ -1,5 +1,5 @@
 var supperclub = angular.module('supperclub', []);
-
+    
 function mainController($scope, $http) {
     $scope.formData = {};
 
@@ -14,11 +14,14 @@ function mainController($scope, $http) {
         });
 
     // when submitting the add form, send the text to the node API
+    $scope.count = 0;
     $scope.createMeal = function() {
         $http.post('/api/meals', $scope.formData)
             .success(function(data) {
+                alert("Meal Added!");
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 $scope.meals = data;
+                $scope.count = $scope.count +1;
                 console.log(data);
             })
             .error(function(data) {
@@ -55,6 +58,27 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     }
+   
+    $scope.generateThumb = function(file) {
+            if (file != null) {
+                if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+                    $timeout(function() {
+                        var fileReader = new FileReader();
+                        fileReader.readAsDataURL(file);
+                        fileReader.onload = function(e) {
+                            $timeout(function() {
+                                file.dataUrl = e.target.result;
+                            });
+                        }
+                    });
+                }
+            }
+        }
+
+    $scope.addImg = function(meal){
+        console.log("my Image:", meal)
+    }
+
 
 }
 

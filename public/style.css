@@ -7,9 +7,12 @@ h1{
     font-family: 'Expo Sans Pro';
 }
 
+ul{
+    list-style-type: none;
+}
 .container-fluid{
-	background-image: url("assets/wood.jpg");
-	color:white;
+    background-image: url("assets/wood.jpg");
+    color:white;
     background-attachment: fixed;
 
 }
@@ -21,35 +24,32 @@ h1{
 
 
 .meal-div .row{
-	border-style: solid;
-	padding: 2px;
+    border-style: solid;
+    padding: 2px;
 }
 .row{
-	margin: 4px;
+    margin: 4px;
 }
 
 .col-xs-4 {
-	padding: 4px;
+    padding: 4px;
 }
 .text{
-	padding: 4px;
+    padding: 4px;
 }
 
 .chef{
-	padding: 4px;
+    padding: 4px;
 }
 .votes{
-	padding: 4px;
+    padding: 4px;
 }
 
-ul{
-    list-style-type: none;
-}
 
 .deleteButton{
     float:right;
     margin-top:-100px;
-    margin-right:-20px;
+    margin-right:-700px;
     cursor:pointer;
     color: #fff;
     border: 1px solid #AEAEAE;
@@ -66,8 +66,6 @@ ul{
     content: "×";
 }
 
-
-
 .form-group{
     color:black;
 }
@@ -77,6 +75,23 @@ input[type="text"] {
     height: 30px;
 }
 
+.goToExplore{
+    float:right;
+    font-size: 22px;
+}
 
 
+.animate-enter {
+    transition: 2s;
+    opacity: .5;
+}
+ 
 
+.btn-group-sm>.btn, .btn-sm {
+    margin-top: 5px;
+
+}
+
+.items{
+    transition: all 2s ease-out;
+}

@@ -7,6 +7,7 @@ var mongoose = require('mongoose');                     // mongoose for mongodb
 var morgan = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+var moment = require('moment');
 
 // configuration =================
 
@@ -26,6 +27,9 @@ var Meal = mongoose.model('Meal', {
   text : String,
   chef: String,
   votes: 0,
+  ingredients: Array,
+  date: Number
+
 
 });
 
@@ -47,8 +51,11 @@ app.get('/api/meals', function(req, res) {
     Meal.create({
       text : req.body.text,
       done : false,
-      votes: 0,
       chef: req.body.chef,
+      votes: 0,
+      ingredients: req.body.ingredients,
+      date: Date.now() //moment().format('MMMM Do YYYY, h:mm:ss a')
+
     }, function(err, meal) {
         if (err){
           res.send(err);
@@ -112,9 +119,12 @@ app.get('/api/meals', function(req, res) {
   });
 
 
-  app.get('*', function(req, res) {
+  app.get('/', function(req, res) {
       res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
   });
+  app.get('/explore', function(req, res) {
+      res.sendfile('./public/explore.html'); // load the single view file (angular will handle the page changes on the front-end)
+  })
 
 
 
