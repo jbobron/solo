@@ -11,5 +11,12 @@
     "moment": "^2.9.0",
     "mongoose": "~3.6.2",
     "morgan": "~1.2.2"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
   }
 }
